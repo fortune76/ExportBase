@@ -7,9 +7,9 @@ from src.models import CompanyModel
 class App:
     """Класс приложения. 
     Не стал выносить логику работы с базой в отдельный модуль, т.к. используется всего 1 запрос."""
-    def __init__(self, path: str) -> None:
+    def __init__(self, path: str, db_path: str) -> None:
         self.parser = Parser(path)
-        self.db = Database()
+        self.db = Database(db_path)
         self.data = None
     
     def parse(self) -> None:
